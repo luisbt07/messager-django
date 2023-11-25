@@ -31,4 +31,4 @@ If you want to monitore the other containers: \
     docker logs -f messager-redis
     docker logs -f messaging-worker
     docker logs -f messager-app
-![Screenshot from 2023-11-25 17-52-06.png](..%2F..%2FDownloads%2FScreenshot%20from%202023-11-25%2017-52-06.png)
+![Screenshot from 2023-11-25 17-52-06](https://github.com/luisbt07/messager-django/assets/57811501/d9e4418d-10e5-4dea-9af5-1525db71ab26)
