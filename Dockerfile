@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION=3.11.0
-
+# Pull and install python image
 FROM python:$PYTHON_VERSION
 
 # Allows docker to cache installed dependencies between builds

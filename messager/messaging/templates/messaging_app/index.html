@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat Application</title>
+    <!-- In order to celan as possible the index.html we defined all javascript and css in a separate file
+         - javascrip | messaging/static/messaging_app/main.js
+         - css | messaging/static/messaging_app/style.css
+     -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'messaging_app/style.css' %}">
-    <!-- Add any necessary CSS stylesheets -->
 </head>
 <body>
-     <!-- Add any necessary JavaScript scripts -->
-
     <div class="chat-container">
-        <label for="messageInput"></label>recipientInput
+        <label for="messageInput"></label>
         <input type="text" id="messageInput" placeholder="Type your message...">
         <input type="text" id="recipientInput" placeholder="Recipient (optional)">
         <button onclick="sendMessage()">Send</button>
         <div id="notification" class="notification"></div>
-        <!-- Message area to display received messages -->
+            <!-- Message area to display received messages -->
         <br>
         <br>
         <div class="message-area" id="messageArea">
