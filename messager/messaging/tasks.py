@@ -26,9 +26,3 @@ def verify_and_send_message(data: dict):
         'recipient': recipient
     }
     return response_data
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:luisbt07/messager-django.git
-git push -u origin main
