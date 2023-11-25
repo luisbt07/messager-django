@@ -1,0 +1,78 @@
+/* Define CSS styles for your chat interface */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#messageInput {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#recipientInput {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message-area {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll; /* or 'auto' if you prefer */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/*.message-area {*/
+/*    display: flex;*/
+/*    flex-direction: column-reverse; !* Reverse the order of messages *!*/
+/*    align-items: flex-start; !* Align messages to the start *!*/
+/*    padding: 10px;*/
+/*    overflow-y: auto;*/
+/*    height: 300px; !* Set a fixed height *!*/
+/*}*/
+.message {
+    display: block; /* Ensures each message appears on a new line */
+    /*background-color: #f2f2f2;*/
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    max-width: 70%; /* Limit message width */
+    word-wrap: break-word; /* Allow long words to break */
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+}

@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  redis:
+    image: redis:latest
+    container_name: "messager-redis"
+    env_file:
+      - .env.local
+    command: --port 6380
+    ports:
+      - "6380:6380"
+  messaging:
+    build:
+      context: .
+    container_name: "messager-app"
+    volumes:
+      - .:/code
+    working_dir: /code/
+    env_file:
+      - .env.local
+    environment:
+      DJANGO_SETTINGS_MODULE: "messager.settings"
+    ports:
+      - "8000:8000"
+    links:
+      - redis
+    command: >
+      bash -c "cd messager && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+  celery-worker:
+    depends_on:
+      - redis
+    build: .
+    hostname: "messaging-celery"
+    container_name: "messaging-worker"
+    env_file:
+      - .env.local
+    environment:
+      DJANGO_SETTINGS_MODULE: "messager.settings"
+    command: >
+      bash -c "cd messager && celery -A messaging worker -l info"
+    volumes:
+      - .:/code
