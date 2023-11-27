@@ -1,8 +1,37 @@
 version: '3.7'
 services:
+  db:
+    image: postgres:16.1
+    container_name: postgres_db
+    restart: always
+    volumes:
+      - "/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres_db
+      POSTGRES_HOST: "db" # Within a Docker Compose setup, each service runs in its own isolated network.
+                          #  if your Django application is running within a Docker container and it tries
+                          # to connect to localhost, it looks for the PostgreSQL server within its own container
+                          # rather than reaching the PostgreSQL service defined in the Docker Compose network.
+                          # in summary, using the service name (db) instead of localhost ensures that the Django container
+                          # communicates with the PostgreSQL service running in the Docker Compose network rather than looking for
+                          # a PostgreSQL instance within its own container.
+      POSTGRES_PORT: 5432
+    ports:
+      - "5432:5432"
+    command: [ "postgres", "-c", "wal_level=logical" ]
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   redis:
     image: redis:latest
     container_name: "messager-redis"
+    volumes:
+      - /data
     env_file:
       - .env.local
     command: --port 6380
@@ -21,7 +50,11 @@ services:
       DJANGO_SETTINGS_MODULE: "messager.settings"
     ports:
       - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
     links:
+      - db
       - redis
     command: >
       bash -c "cd messager && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"

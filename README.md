@@ -25,8 +25,8 @@ To shutdown application:
 
     docker compose down
 
-If you want to access the application, just go to http://0.0.0.0:8000/ \
-If you want to monitore the other containers: \
+If you want to access the application, just go to http://0.0.0.0:8000/messager \
+If you want to monitore the other containers: 
 
     docker logs -f messager-redis
     docker logs -f messaging-worker
