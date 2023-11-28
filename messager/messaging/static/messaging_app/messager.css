@@ -47,14 +47,7 @@ button:hover {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-/*.message-area {*/
-/*    display: flex;*/
-/*    flex-direction: column-reverse; !* Reverse the order of messages *!*/
-/*    align-items: flex-start; !* Align messages to the start *!*/
-/*    padding: 10px;*/
-/*    overflow-y: auto;*/
-/*    height: 300px; !* Set a fixed height *!*/
-/*}*/
+
 .message {
     display: block; /* Ensures each message appears on a new line */
     /*background-color: #f2f2f2;*/
