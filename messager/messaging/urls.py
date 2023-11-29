@@ -7,5 +7,5 @@ urlpatterns = [
     path('enter_message_app/register_user/', views.register_user, name='register_user'),
     path('enter_message_app/login_user/', views.login_user, name='login_user'),
     path('enter_message_app/', views.enter_message_app, name='enter_message_app'),
-    path('fetch_online_users/', views.fetch_online_users, name='fetch_online_users'),
+    path('get_online_users/', views.get_online_users, name='get_online_users'),
 ]

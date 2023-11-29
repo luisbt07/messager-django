@@ -64,3 +64,57 @@ function displayRecipientNotification(recipient) {
         notification.style.display = 'none';
     }, 5000); // 5000 milliseconds = 5 seconds
 }
+
+
+
+//SIDE COLUMN JS
+// Function to fetch online users
+function fetchOnlineUsers() {
+    // Make an API call to your backend to fetch online users
+    // Replace this with your actual endpoint for fetching online users
+    fetch('get_online_users/')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            // Call a function to display the online users
+            displayOnlineUsers(data.online_users);
+        })
+        .catch(error => {
+            console.error('Error fetching online users:', error);
+        });
+}
+// Function to display online users
+function displayOnlineUsers(onlineUsers) {
+    const onlineUsersList = document.getElementById('onlineUsersList');
+    onlineUsersList.innerHTML = '';
+    console.log(typeof onlineUsers)
+    onlineUsers.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = `#${user.usercode}: ${user.username}`;
+        li.classList.add('online-user');
+
+        // Add a click event listener to each list item
+        li.addEventListener('click', () => {
+            // Handle clicking on a user (e.g., send a message, etc.)
+            // You can add your logic here
+            console.log(`Clicked on ${user.username}`);
+        });
+
+        onlineUsersList.appendChild(li);
+    });
+}
+
+// Function to refresh online users every 30 seconds
+function refreshOnlineUsers() {
+    fetchOnlineUsers(); // Initial fetch
+    setInterval(fetchOnlineUsers, 30000); // Fetch every 30 seconds
+}
+
+// Call the function to refresh online users
+refreshOnlineUsers();
+
+// Refresh from Icon
+document.getElementById('refreshIcon').addEventListener('click', function() {
+    // Call your refresh function here or perform the necessary actions
+    refreshOnlineUsers(); // Replace 'refreshUserList' with your actual refresh function
+});

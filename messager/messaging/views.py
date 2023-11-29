@@ -86,10 +86,10 @@ def send_message(request):
 
 @csrf_exempt
 @login_required
-def fetch_online_users(request):
+def get_online_users(request):
     current_user_id = request.user.id
     # Getting active sessions using celery
-    task_result = fetch_all_online_users(current_user_id=current_user_id)
+    online_users = fetch_all_online_users(current_user_id=current_user_id)
+    online_user_values = list(online_users.values("usercode","username"))
     # waits the result of the task to continue
-    online_users = task_result.get()
-    return JsonResponse(online_users, status=200)
+    return JsonResponse({"online_users": online_user_values}, status=200)

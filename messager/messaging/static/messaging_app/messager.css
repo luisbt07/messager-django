@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    margin-left: 220px; /* Adjust the margin to create space for the side column */
 }
 
 #messageInput {
@@ -68,4 +69,43 @@ button:hover {
     color: white;
     border-radius: 5px;
     z-index: 1000;
+}
+
+
+
+/*
+SIDE COLUM USERS LIST
+*/
+.side-column {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 2; /* Ensure side column is on top */
+}
+
+.side-column h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.side-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-column li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a border between list items */
+    cursor: pointer;
+}
+
+.side-column li.active {
+    background-color: #007bff; /* Adjust color for active user */
+    color: #fff;
 }

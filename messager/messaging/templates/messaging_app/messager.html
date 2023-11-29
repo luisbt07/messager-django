@@ -8,9 +8,15 @@
          - css | messaging/static/messaging_app/messager_style.css
      -->
     {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'messaging_app/messager.css' %}">
 </head>
 <body>
+    <div class="side-column">
+            <i id="refreshIcon" class="fas fa-sync-alt" style="cursor: pointer;"></i>
+            <h2>Online Users</h2>
+            <ul id="onlineUsersList"></ul>
+        </div>
     <div class="chat-container">
         <label for="messageInput"></label>
         <input type="text" id="messageInput" placeholder="Type your message...">

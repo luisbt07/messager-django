@@ -8,7 +8,9 @@
 /dataSources.local.xml
 .pyc
 # Ignore Python bytecode cache files
-**/__pycache__/
+__pycache__/
+*.py[cod]
+
 
 # Ignore virtual environment directories
 env/
