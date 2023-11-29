@@ -1,7 +1,10 @@
 function sendMessage() {
     const message = document.getElementById('messageInput').value;
     const recipient = document.getElementById('recipientInput').value;
-
+    if (!message) {
+        displayEmptyMessageNotification();
+        return; // Prevent sending if the message is empty
+    }
     const jsonData = {
         message: message,
         recipient: recipient
@@ -34,6 +37,8 @@ function handleMessageResponse(response) {
                 displayRecipientNotification(data.recipient);
             }
             else {
+                if(!data.message || !data.sender_name || !data.sender_code)
+                    return
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message');
                 messageDiv.textContent =`[${data.sender_code}] ${data.sender_name}: ${data.message}`
@@ -45,8 +50,7 @@ function handleMessageResponse(response) {
                 }
         });
     } else {
-        console.error('Error sending message');
-        // Logic for handling message sending error (if needed)
+        displayErrorNotification(response)
     }
 }
 
@@ -61,6 +65,25 @@ function displayRecipientNotification(recipient) {
     setTimeout(() => {
         notification.style.display = 'none';
     }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+function displayEmptyMessageNotification() {
+    const notification = document.getElementById('notification');
+    notification.textContent = 'Message cannot be empty!';
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000); // 5000 milliseconds = 5 seconds
+}
+function displayErrorNotification(response) {
+    response.json().then(message_data => {
+        const notification = document.getElementById('notification');
+        notification.textContent = message_data.error_message;
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 5000); // 5000 milliseconds = 5 seconds
+    })
 }
 
 

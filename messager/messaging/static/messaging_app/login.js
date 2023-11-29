@@ -22,8 +22,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         if (response.redirected)
              window.location.replace('/messager/');
         else {
-            const responseMessage = document.getElementById('loginResponseMessage');
-            responseMessage.textContent = 'Login failed. Please check your credentials.';
+            displayNotification(response)
         }
 
     } catch (error) {
@@ -78,3 +77,13 @@ function getCookie(name) {
     }
 }
 
+function displayNotification(response) {
+    response.json().then(message_data => {
+        const notification = document.getElementById('notification');
+        notification.textContent = message_data.error_message;
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 5000); // 5000 milliseconds = 5 seconds
+    })
+}

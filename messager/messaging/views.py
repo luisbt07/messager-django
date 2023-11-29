@@ -32,7 +32,7 @@ def login_user(request):
         else:
             # Return an error message if authentication fails
             error_message = 'Invalid username or password. Please try again.'
-            JsonResponse({'status': 'error', "message": error_message}, status=400)
+            return JsonResponse({'status': 'error', "error_message": error_message}, status=400)
     return JsonResponse({'status': 'error'}, status=400)
 
 
@@ -73,12 +73,14 @@ def send_message(request):
             # Celery can't serialize automatically a class
             # it was necessary to convert to json(that is serializable)
             message_request = MessageRequest.from_request(request).__json__()
-
             # Celery async execution create and sengind tasks
             message_task_result = create_and_send_message.delay(message_request)
             logger.info("Message is being processed by celery default Queue")
             # waits the result of the task to continue
             result = message_task_result.get()
+            if result.get('status') == 'error':
+                logger.info(result)
+                return JsonResponse(result, status=400)
             return JsonResponse(result)
         except json.JSONDecodeError:
                 return JsonResponse({'status': 'error', 'message': 'JsonDecodeError'}, status=400)
