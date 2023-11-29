@@ -7,7 +7,7 @@ function sendMessage() {
         recipient: recipient
     };
 
-    fetch('/send_message/', {
+    fetch('send_message/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +36,8 @@ function handleResponse(response) {
             else {
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message');
-                messageDiv.textContent = data.message;
+                message_formated = `[${data.sender_code}] ${data.sender_name}: ${data.message}`
+                messageDiv.textContent = message_formated;
 
                 // Append the message to the messageArea div
                 const messageContainer = document.getElementById('messageArea');

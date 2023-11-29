@@ -12,7 +12,7 @@ WORKDIR /code
 ENV PYTHONPATH="$PYTHONPATH:/code/messager:"
 
 ## Run migrations
-RUN #python messager/manage.py migrate
+#RUN python messager/manage.py migrate
 #EXPOSE 8000
 # runs the production server
 #ENTRYPOINT ["python", "messager/manage.py"]

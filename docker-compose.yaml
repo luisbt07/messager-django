@@ -10,6 +10,8 @@ services:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres_db
+      PGUSER: postgres # correct: FATAL: role "root" does not exist
+                       # https://stackoverflow.com/questions/60193781/postgres-with-docker-compose-gives-fatal-role-root-does-not-exist-error/60194261#comment106488278_60194261
       POSTGRES_HOST: "db" # Within a Docker Compose setup, each service runs in its own isolated network.
                           #  if your Django application is running within a Docker container and it tries
                           # to connect to localhost, it looks for the PostgreSQL server within its own container
@@ -57,7 +59,9 @@ services:
       - db
       - redis
     command: >
-      bash -c "cd messager && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      bash -c "cd messager &&
+      python manage.py makemigrations &&
+      python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
   celery-worker:
     depends_on:

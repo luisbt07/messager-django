@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4g%wkhkd!0c%odli6b%oj92i-h*8pgn+ay3_62bmsej(wh5@%l'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY',)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -72,17 +72,17 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': False,
         },
-        'your_app_name': {
+        'messaging': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,
@@ -159,3 +159,5 @@ REDIS_CELERY_RESULT_DB = os.getenv("REDIS_CELERY_DB", "3")
 CELERY_BROKER_URL = f"{REDIS_URL}/{REDIS_CELERY_DB}"
 CELERY_RESULT_BACKEND = f"{REDIS_URL}/{REDIS_CELERY_RESULT_DB}"
 CELERY_TASK_ACKS_LATE = True
+
+LOGIN_URL = 'enter_message_app/'
