@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from messaging.models import CustomUser, MessageRequest
-from messaging.services.message_service import fetch_all_online_users
+from messaging.services.message_service import fetch_all_online_users, \
+    fetch_historical_by_count_messages
 import logging
 import json
 
@@ -75,7 +76,7 @@ def send_message(request):
 
             # Celery async execution create and sengind tasks
             message_task_result = create_and_send_message.delay(message_request)
-            logger.info("Message is being processed by celery defualt Queue")
+            logger.info("Message is being processed by celery default Queue")
             # waits the result of the task to continue
             result = message_task_result.get()
             return JsonResponse(result)
@@ -88,8 +89,16 @@ def send_message(request):
 @login_required
 def get_online_users(request):
     current_user_id = request.user.id
-    # Getting active sessions using celery
     online_users = fetch_all_online_users(current_user_id=current_user_id)
     online_user_values = list(online_users.values("usercode","username"))
     # waits the result of the task to continue
     return JsonResponse({"online_users": online_user_values}, status=200)
+
+
+@csrf_exempt
+@login_required
+def fetch_historical_messages(request):
+    """" First historical messages for opening the messager browser"""
+    current_user_id = int(request.user.id)
+    historical_last_messages = fetch_historical_by_count_messages(user_id=current_user_id)
+    return JsonResponse({'last_messages': historical_last_messages}, status=200)

@@ -4,3 +4,4 @@ psycopg[binary]
 sqlparse==0.4.4
 redis
 celery[redis]
+django-extensions

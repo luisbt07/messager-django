@@ -14,7 +14,7 @@ function sendMessage() {
         },
         body: JSON.stringify(jsonData)
     })
-        .then(handleResponse)
+        .then(handleMessageResponse)
         .catch(handleError);
 }
 function handleKeyDown(event) {
@@ -24,7 +24,7 @@ function handleKeyDown(event) {
 }
 document.getElementById('messageInput').addEventListener('keydown', handleKeyDown);
 document.getElementById('recipientInput').addEventListener('keydown', handleKeyDown);
-function handleResponse(response) {
+function handleMessageResponse(response) {
     if (response.ok) {
         console.log('Message received successfully');
         response.json().then(data => {
@@ -36,9 +36,7 @@ function handleResponse(response) {
             else {
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message');
-                message_formated = `[${data.sender_code}] ${data.sender_name}: ${data.message}`
-                messageDiv.textContent = message_formated;
-
+                messageDiv.textContent =`[${data.sender_code}] ${data.sender_name}: ${data.message}`
                 // Append the message to the messageArea div
                 const messageContainer = document.getElementById('messageArea');
                 messageContainer.appendChild(messageDiv);
@@ -118,3 +116,46 @@ document.getElementById('refreshIcon').addEventListener('click', function() {
     // Call your refresh function here or perform the necessary actions
     refreshOnlineUsers(); // Replace 'refreshUserList' with your actual refresh function
 });
+
+
+// Historical Requests:
+function fetchHistoricalMessages() {
+    fetch('fetch_historical_messages/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Handle the received historical messages
+        displayHistoricalMessages(data.last_messages);
+    })
+    .catch(error => {
+        console.error('Error fetching historical messages:', error);
+    });
+}
+
+// Call fetchHistoricalMessages when the page loads or when needed
+// For example, on initial page load:
+window.onload = function() {
+    fetchHistoricalMessages();
+    // Other initialization logic
+}
+
+function displayHistoricalMessages(historicalMessages) {
+    historicalMessages.forEach(message => {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.textContent = `[${message.sender_code}] ${message.sender_name}: ${message.message}`;
+
+        const messageContainer = document.getElementById('messageArea');
+        messageContainer.appendChild(messageDiv);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    });
+}
