@@ -1,4 +1,5 @@
 # messager-django
+LINK - Github of the project: https://github.com/luisbt07/messager-django
 1. [Features](#features)
 2. [Technologies Used](#technologies-used)
     - [Celery - Async Tasks](#celery---async-tasks)
@@ -10,13 +11,14 @@
     - [Monitoring Containers](#monitoring-containers)
 4. [Entity Relational Diagram](#entity-relational-mapping)
 5. [Test Suggestion](#test-suggestion)
+6. [References](#references)
 
 This project was developed to serve the Instructional Self project for both **Backend and Distributed Systems Development**.
 Students: 
 
     - Luís Brandão Teixeira (Backend - DSD - class)
     - Guilherme Moraes(Backend - Class) 
-    - Henrique Cravez(DSD - class)
+    - Henrique Cravez(DSD - Backend - class)
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
 This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
@@ -102,7 +104,7 @@ This design pattern gives us more flexibility to manage messages and recipients 
 Happy path
 1. Run the application with the docker commands | open in different terminals the Monitoring containers
 2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
-3. Register different users and login with them - Ex: users(luis, lanaro, paper)
+3. Register different users and login with them - Ex: users(luis, lanaro, laper)
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/4d675a28-e841-47cd-8119-6e8321929dab)
 4. Send a broadcast message - Refresh all pages(the polling was not implemented for reaching new messages)
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/599024fe-e5ea-4111-82fc-b79711aa425b)
@@ -113,4 +115,14 @@ Happy path
 7. Close all pages and open again - you must see the sessions are maintened and historical messages are retrieved and written again to the text-area 
 
 
+#### References
 
+- https://dockerize.io/guides/python-django-guide
+- https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+- https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application
+- https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html#installation
+- https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html#broker-toc
+- https://devchecklists.com/en/checklist/celery-tasks-checklist.html
+- https://denibertovic.com/posts/celery-best-practices/
+- https://engineering.instawork.com/celery-eta-tasks-demystified-424b836e4e94
+- https://python.plainenglish.io/how-to-implement-user-login-with-jwt-authentication-in-django-rest-framework-d56ae51a1fea
