@@ -88,7 +88,8 @@ You may want to monitor the other containers:
     docker logs -f messager-app
 ![Screenshot from 2023-11-25 17-52-06](https://github.com/luisbt07/messager-django/assets/57811501/d9e4418d-10e5-4dea-9af5-1525db71ab26)
 ### Entity Relational Mapping
-![image](https://github.com/luisbt07/messager-django/assets/57811501/2a3571fc-448d-42f3-8306-8456234638cb)
+![my_models](https://github.com/luisbt07/messager-django/assets/57811501/4622b331-52f5-4d3a-97fb-a9ad1ae4f2cf)
+
 
 **Models**
 
@@ -106,14 +107,18 @@ This design pattern gives us more flexibility to manage messages and recipients 
 Happy path
 1. Run the application with the docker commands | open in different terminals the Monitoring containers
 2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
-3. Register different users and login with them - Ex: users(luis, lanaro, laper)
-![image](https://github.com/luisbt07/messager-django/assets/57811501/4d675a28-e841-47cd-8119-6e8321929dab)
+3. Register different users and login with them - Ex: users(luis, lanaro, paper)
+![Screenshot from 2023-11-29 23-55-30](https://github.com/luisbt07/messager-django/assets/57811501/3ff0cc8f-3e3e-4d08-9575-7492c509f81f)
 4. Send a broadcast message - Refresh all pages(the polling was not implemented for reaching new messages)
-![image](https://github.com/luisbt07/messager-django/assets/57811501/599024fe-e5ea-4111-82fc-b79711aa425b)
+![Screenshot from 2023-11-30 00-01-50](https://github.com/luisbt07/messager-django/assets/57811501/fe1c04b1-4cae-41f9-8ee8-6938a7122f8f)
+
 5. Take the code of one user online in the Online Users columen - send a message for this user - refresh all pages - you must see that only the recipient received the message
-![image](https://github.com/luisbt07/messager-django/assets/57811501/29dd471f-11af-4b04-89d4-33c67a6ed439)
-6. Take the code of the other user online and send only for him - refresh all pages - you must see that only the recipient received the message 
-![image](https://github.com/luisbt07/messager-django/assets/57811501/6f410534-e5e6-4546-bde1-68c93f3e74b8)
+![Screenshot from 2023-11-30 00-04-59](https://github.com/luisbt07/messager-django/assets/57811501/6d0418b4-ee95-43fd-b6d8-419efcf25fd4)
+
+6. Take the code of the other user online and send only for him - refresh all pages - you must see that only the recipient received the message
+![Screenshot from 2023-11-30 00-14-49](https://github.com/luisbt07/messager-django/assets/57811501/2cfebd1e-881c-4136-94c4-42b2e9c0a545)
+
+
 7. Close all pages and open again - you must see the sessions are maintened and historical messages are retrieved and written again to the text-area 
 
 
