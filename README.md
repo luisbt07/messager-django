@@ -10,6 +10,7 @@
     - [Monitoring Containers](#monitoring-containers)
 4. [Entity Relational Diagram](#entity-relational-mapping)
 5. [Test Suggestion](#test-suggestion)
+6. [References](#references)
 
 This project was developed to serve the Instructional Self project for both **Backend and Distributed Systems Development**.
 Students: 
@@ -113,4 +114,13 @@ Happy path
 7. Close all pages and open again - you must see the sessions are maintened and historical messages are retrieved and written again to the text-area 
 
 
-
+#### References
+https://dockerize.io/guides/python-django-guide
+https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application
+https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html#installation
+https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html#broker-toc
+https://devchecklists.com/en/checklist/celery-tasks-checklist.html
+https://denibertovic.com/posts/celery-best-practices/
+https://engineering.instawork.com/celery-eta-tasks-demystified-424b836e4e94
+https://python.plainenglish.io/how-to-implement-user-login-with-jwt-authentication-in-django-rest-framework-d56ae51a1fea
