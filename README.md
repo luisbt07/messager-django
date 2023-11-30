@@ -8,7 +8,7 @@
     - [Celery - Async Tasks](#celery-async-tasks)
     - [Redis](#redis)
     - [Redis integrated with Celery](#integration-with-celery)
-3. [Running - Application](#running-the-application)
+3. [Running - Application](#running-application)
     - [Requirements](#requirements)
     - [Setup](#setup)
     - [Shutting Down](#shutting-down)
