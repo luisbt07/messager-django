@@ -104,7 +104,7 @@ This design pattern gives us more flexibility to manage messages and recipients 
 Happy path
 1. Run the application with the docker commands | open in different terminals the Monitoring containers
 2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
-3. Register different users and login with them - Ex: users(luis, lanaro, paper)
+3. Register different users and login with them - Ex: users(luis, lanaro, laper)
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/4d675a28-e841-47cd-8119-6e8321929dab)
 4. Send a broadcast message - Refresh all pages(the polling was not implemented for reaching new messages)
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/599024fe-e5ea-4111-82fc-b79711aa425b)
