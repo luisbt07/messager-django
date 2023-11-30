@@ -1,24 +1,20 @@
 # messager-django
-1. [Overview](#overview)
-2. [Features](#features)
+1. [Features](#features)
     - [User Management](#user-management)
     - [Messaging](#messaging)
     - [Online Users](#online-users)
     - [Message History](#message-history)
-3. [Technologies Used](#technologies-used)
-    - [Django Framework](#django-framework)
-    - [Celery - Async Tasks](#celery---async-tasks)
+2. [Technologies Used](#technologies-used)
+    - [Celery - Async Tasks](#celery-async-tasks)
     - [Redis](#redis)
-    - [Integration with Celery](#integration-with-celery)
-4. [Running the Application](#running-the-application)
+    - [Redis integrated with Celery](#integration-with-celery)
+3. [Running - Application](#running-the-application)
     - [Requirements](#requirements)
     - [Setup](#setup)
     - [Shutting Down](#shutting-down)
     - [Monitoring Containers](#monitoring-containers)
-5. [Additional Information](#additional-information)
+4. [Entity Relational Diagram)
     - [Screenshots](#screenshots)
-6. [Contributing](#contributing)
-7. [License](#license)
 
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
@@ -34,7 +30,7 @@ This is a simple messager chat django-project, but with a lot of modern concepts
 - **Message History**
   - Fetches historical messages (sent or received) for display when the page loads.
   - Limited historical message retrieval.
-
+## Technologies Used
 I'm running up separate containers using docker-compose.yaml for the django-application itself, Redis - Broker and the Celery
 ### Celery - Async Tasks
 Celery is an asynchronous task queue/job queue that allows you to run tasks in the background, separate from the main application flow. It's commonly used in web applications to handle time-consuming or recurring tasks without blocking the application.
@@ -57,7 +53,7 @@ Celery greatly enhances the scalability and performance of applications by handl
 - Message Broker: In the context of Celery, Redis is commonly used as a message broker. It acts as the intermediary between the Celery client (which sends tasks) and the Celery workers (which execute the tasks). When a task is initiated by the client, it's placed into a Redis queue to be picked up by available Celery workers.
 - Caching and Session Store: Redis is also widely used for caching frequently accessed data and as a session store for web applications, enhancing performance and scalability.
 
-#### When integrated with Celery:
+#### Redis integrated with Celery:
 
 - **Broker Configuration**: Celery needs a message broker to handle the passing of messages between the client and the workers. Redis serves as this broker, efficiently managing the queue of tasks waiting to be executed.
 - **Task Queue**: Celery uses Redis as a task queue. Tasks sent by the Celery client are stored in Redis, waiting to be processed by available Celery workers.
@@ -69,7 +65,7 @@ Overall, Redis plays a crucial role in the Celery ecosystem by providing a fast 
 #### Requirements
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker-Compose](https://docs.docker.com/compose/)
-
+#### Setup
  The DockerFile and docker-compose.yaml are already configured to run the application, so you just need to run the following command:
 
     docker compose up -d --build
@@ -85,3 +81,5 @@ If you want to monitore the other containers:
     docker logs -f messaging-worker
     docker logs -f messager-app
 ![Screenshot from 2023-11-25 17-52-06](https://github.com/luisbt07/messager-django/assets/57811501/d9e4418d-10e5-4dea-9af5-1525db71ab26)
+### Entity Relational Mapping
+
