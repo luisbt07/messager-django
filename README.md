@@ -77,5 +77,7 @@ If you want to monitore the other containers:
     docker logs -f messager-app
 ![Screenshot from 2023-11-25 17-52-06](https://github.com/luisbt07/messager-django/assets/57811501/d9e4418d-10e5-4dea-9af5-1525db71ab26)
 ### Entity Relational Mapping
+![image](https://github.com/luisbt07/messager-django/assets/57811501/2a3571fc-448d-42f3-8306-8456234638cb)
+
 
 
