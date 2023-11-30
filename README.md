@@ -108,5 +108,9 @@ Happy path
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/599024fe-e5ea-4111-82fc-b79711aa425b)
 5. Take the code of one user online in the Online Users columen - send a message for this user - refresh all pages - you must see that only the recipient received the message
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/29dd471f-11af-4b04-89d4-33c67a6ed439)
- 
+6. Take the code of the other user online and send only for him - refresh all pages - you must see that only the recipient received the message 
+![image](https://github.com/luisbt07/messager-django/assets/57811501/6f410534-e5e6-4546-bde1-68c93f3e74b8)
+7. Close all pages and open again - you must see the sessions are maintened and historical messages are retrieved and written again to the text-area 
+
+
 
