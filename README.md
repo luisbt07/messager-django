@@ -1,10 +1,8 @@
 # messager-django
 
-### Django
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
-
+### Django framework
 This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
-
 This project has this Features:
 
 - **Simple User Management** - User registration and login functionalities using Django's authentication system, assigns unique usercodes to new users for identification.
