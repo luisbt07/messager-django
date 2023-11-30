@@ -1,20 +1,14 @@
 # messager-django
 1. [Features](#features)
-    - [User Management](#user-management)
-    - [Messaging](#messaging)
-    - [Online Users](#online-users)
-    - [Message History](#message-history)
 2. [Technologies Used](#technologies-used)
-    - [Celery - Async Tasks](#celery-async-tasks)
+    - [Celery - Async Tasks](#celery---async-tasks)
     - [Redis](#redis)
-    - [Redis integrated with Celery](#integration-with-celery)
-3. [Running - Application](#running-application)
+    - [Redis integrated with Celery](#redis-integrated-with-celery)
+3. [Running - Application](#running---application)
     - [Requirements](#requirements)
     - [Setup](#setup)
-    - [Shutting Down](#shutting-down)
     - [Monitoring Containers](#monitoring-containers)
-4. [Entity Relational Diagram)
-    - [Screenshots](#screenshots)
+4. [Entity Relational Diagram)(#entity-relational-mapping)
 
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
@@ -75,6 +69,7 @@ To shutdown application:
     docker compose down
 
 If you want to access the application, just go to http://0.0.0.0:8000/messager \
+#### Monitoring
 If you want to monitore the other containers: 
 
     docker logs -f messager-redis
