@@ -126,6 +126,7 @@ Happy path
 
 - https://dockerize.io/guides/python-django-guide
 - https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+- https://testdriven.io/courses/django-celery/docker/#H-12-simple-test
 - https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application
 - https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html#installation
 - https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html#broker-toc
