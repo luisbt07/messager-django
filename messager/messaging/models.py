@@ -28,7 +28,7 @@ class CustomUser(User):
 class Message(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='sent_messages')
-    message = models.CharField(max_length=255)
+    message = models.CharField(max_length=1000)
     broadcast = models.BooleanField(default=False) # If message was sent to all online users
 
 class MessageRecipient(models.Model):
