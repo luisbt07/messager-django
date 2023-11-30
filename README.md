@@ -79,5 +79,15 @@ If you want to monitore the other containers:
 ### Entity Relational Mapping
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/2a3571fc-448d-42f3-8306-8456234638cb)
 
+**Models**
 
+ - **CustomUser** model extends from django User model and adds the unique usercode.
+ - **Message** models holds general message information, such as the sender, content, and whether it's a broadcast.
+ - **MessageRecipient** model acts as an Intermediary to link each message to its recipients. This allows for multiple users to be associated with a single message.
 
+This intermediate model enables us to handle more complex scenarios, such as:
+
+ - Storing read/unread status per usaer for each message.
+ - Adding more metadata per recipient-message(e.g., timestamps, flags).
+ - Facilitating more advanced querying or filtering based on recipients
+This design pattern gives us more flexibility to manage messages and recipients separately, providing clearer and more maintainable code as the application evolves.
