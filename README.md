@@ -1,12 +1,34 @@
 # messager-django
 
 ### Django
-This is a simple project that intents to process some tasks asynchronously using Celery and Redis as broker.
-For instance it doesn't control the users, it doesn't have authentication, nor it has a control of the sessions created.
+![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 
-What it really does is to process the tasks asynchronously and return the result of the task to the user.
+This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
+
+This project has this Features:
+
+- **Simple User Management** - User registration and login functionalities using Django's authentication system, assigns unique usercodes to new users for identification.
+- **Messaging**:
+  - Allows sending messages to specific recipients or broadcasting messages to all online users.
+  - Displays the sender's information along with the message content in the UI.
+- **Online Users**
+  - Fetches and displays online users periodically, using polling strategy
+- **Message History**
+  - Fetches historical messages (sent or received) for display when the page loads.
+  - Limited historical message retrieval.
 
 I'm running up separate containers using docker-compose.yaml for the django-application itself, Redis - Broker and the Celery
+### Celery - Async Tasks
+Celery is an asynchronous task queue/job queue that allows you to run tasks in the background, separate from the main application flow. It's commonly used in web applications to handle time-consuming or recurring tasks without blocking the application.
+Async Processing: Celery allows you to execute tasks asynchronously. Instead of executing tasks immediately when called, it puts them into a queue, allowing other parts of the application to continue working without waiting for the task to finish.
+
+- **Task Execution**: Tasks are units of work represented as functions or methods. These tasks can be scheduled to run at a specific time or triggered by events.
+- **Distributed System**: Celery operates as a distributed system, allowing tasks to be executed on multiple worker nodes. This enables scalability and load balancing.
+- **Broker System**: It relies on a message broker (e.g., Redis, RabbitMQ) to handle the passing of messages between the application and the Celery workers. The broker acts as a mediator, enabling communication between different parts of the application.
+- **Result Backend**: Celery supports result backends where the task results can be stored (e.g., in a database or cache) for retrieval or monitoring purposes.
+- **Monitoring and Management**: Tools like Flower offer a web-based monitoring dashboard for managing Celery tasks and workers, providing insights into the task execution process.
+
+Celery greatly enhances the scalability and performance of applications by handling time-consuming tasks efficiently and asynchronously, ensuring a smoother user experience.
 
 ### Redis
 **Redis** is an open-source, in-memory data structure store that acts as a database, cache, and message broker. It's known for its speed, versatility, and support for various data structures.
@@ -24,17 +46,6 @@ I'm running up separate containers using docker-compose.yaml for the django-appl
 - **Scalability and Performance**: Redis's fast in-memory storage and Pub/Sub features enhance Celery's scalability, allowing multiple Celery workers to process tasks concurrently and ensuring efficient message passing.
 
 Overall, Redis plays a crucial role in the Celery ecosystem by providing a fast and reliable message broker and task queue, enabling distributed task execution and efficient communication between components in asynchronous task processing.
-### Celery - Async Tasks
-Celery is an asynchronous task queue/job queue that allows you to run tasks in the background, separate from the main application flow. It's commonly used in web applications to handle time-consuming or recurring tasks without blocking the application.
-Async Processing: Celery allows you to execute tasks asynchronously. Instead of executing tasks immediately when called, it puts them into a queue, allowing other parts of the application to continue working without waiting for the task to finish.
-
-- **Task Execution**: Tasks are units of work represented as functions or methods. These tasks can be scheduled to run at a specific time or triggered by events.
-- **Distributed System**: Celery operates as a distributed system, allowing tasks to be executed on multiple worker nodes. This enables scalability and load balancing.
-- **Broker System**: It relies on a message broker (e.g., Redis, RabbitMQ) to handle the passing of messages between the application and the Celery workers. The broker acts as a mediator, enabling communication between different parts of the application.
-- **Result Backend**: Celery supports result backends where the task results can be stored (e.g., in a database or cache) for retrieval or monitoring purposes.
-- **Monitoring and Management**: Tools like Flower offer a web-based monitoring dashboard for managing Celery tasks and workers, providing insights into the task execution process.
-
-Celery greatly enhances the scalability and performance of applications by handling time-consuming tasks efficiently and asynchronously, ensuring a smoother user experience.
 
 ### Running - Application
 #### Requirements
