@@ -115,12 +115,13 @@ Happy path
 
 
 #### References
-https://dockerize.io/guides/python-django-guide
-https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
-https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application
-https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html#installation
-https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html#broker-toc
-https://devchecklists.com/en/checklist/celery-tasks-checklist.html
-https://denibertovic.com/posts/celery-best-practices/
-https://engineering.instawork.com/celery-eta-tasks-demystified-424b836e4e94
-https://python.plainenglish.io/how-to-implement-user-login-with-jwt-authentication-in-django-rest-framework-d56ae51a1fea
+
+- https://dockerize.io/guides/python-django-guide
+- https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+- https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application
+- https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/redis.html#installation
+- https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html#broker-toc
+- https://devchecklists.com/en/checklist/celery-tasks-checklist.html
+- https://denibertovic.com/posts/celery-best-practices/
+- https://engineering.instawork.com/celery-eta-tasks-demystified-424b836e4e94
+- https://python.plainenglish.io/how-to-implement-user-login-with-jwt-authentication-in-django-rest-framework-d56ae51a1fea
