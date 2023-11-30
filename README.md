@@ -1,9 +1,29 @@
 # messager-django
+1. [Overview](#overview)
+2. [Features](#features)
+    - [User Management](#user-management)
+    - [Messaging](#messaging)
+    - [Online Users](#online-users)
+    - [Message History](#message-history)
+3. [Technologies Used](#technologies-used)
+    - [Django Framework](#django-framework)
+    - [Celery - Async Tasks](#celery---async-tasks)
+    - [Redis](#redis)
+    - [Integration with Celery](#integration-with-celery)
+4. [Running the Application](#running-the-application)
+    - [Requirements](#requirements)
+    - [Setup](#setup)
+    - [Shutting Down](#shutting-down)
+    - [Monitoring Containers](#monitoring-containers)
+5. [Additional Information](#additional-information)
+    - [Screenshots](#screenshots)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
 This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
-This project has this Features:
+#### Features:
 
 - **Simple User Management** - User registration and login functionalities using Django's authentication system, assigns unique usercodes to new users for identification.
 - **Messaging**:
