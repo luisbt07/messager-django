@@ -19,7 +19,9 @@ Students:
     - Luís Brandão Teixeira (Backend - DSD - class)
     - Guilherme Moraes(Backend - Class) 
     - Henrique Cravez(DSD - Backend - class)
-![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
+![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/173355a1-207d-40ff-9a84-0c9db8e25fcf)
+
+
 ### Django framework
 This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
 #### Features:
