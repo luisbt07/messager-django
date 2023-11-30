@@ -103,5 +103,9 @@ Happy path
 2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
 3. Register different users and login with them - Ex: users(luis, lanaro, paper)
 ![image](https://github.com/luisbt07/messager-django/assets/57811501/4d675a28-e841-47cd-8119-6e8321929dab)
-4. 
+4. Send a broadcast message - Refresh all pages(the polling was not implemented for reaching new messages)
+![image](https://github.com/luisbt07/messager-django/assets/57811501/599024fe-e5ea-4111-82fc-b79711aa425b)
+5. Take the code of one user online in the Online Users columen - send a message for this user - refresh all pages - you must see that only the recipient received the message
+![image](https://github.com/luisbt07/messager-django/assets/57811501/29dd471f-11af-4b04-89d4-33c67a6ed439)
+ 
 
