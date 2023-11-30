@@ -8,7 +8,7 @@
     - [Requirements](#requirements)
     - [Setup](#setup)
     - [Monitoring Containers](#monitoring-containers)
-4. [Entity Relational Diagram)(#entity-relational-mapping)
+4. [Entity Relational Diagram](#entity-relational-mapping)
 
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
@@ -77,4 +77,5 @@ If you want to monitore the other containers:
     docker logs -f messager-app
 ![Screenshot from 2023-11-25 17-52-06](https://github.com/luisbt07/messager-django/assets/57811501/d9e4418d-10e5-4dea-9af5-1525db71ab26)
 ### Entity Relational Mapping
+
 
