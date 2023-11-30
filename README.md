@@ -9,6 +9,7 @@
     - [Setup](#setup)
     - [Monitoring Containers](#monitoring-containers)
 4. [Entity Relational Diagram](#entity-relational-mapping)
+5. [Test Suggestion](#test-suggestion)
 
 This project was developed to serve the Instructional Self project for both **Backend and Distributed Systems Development**.
 Students: 
@@ -97,7 +98,7 @@ This intermediate model enables us to handle more complex scenarios, such as:
  - Adding more metadata per recipient-message(e.g., timestamps, flags).
  - Facilitating more advanced querying or filtering based on recipients
 This design pattern gives us more flexibility to manage messages and recipients separately, providing clearer and more maintainable code as the application evolves.
-### Testing Suggest
+### Test Suggestion
 Happy path
 1. Run the application with the docker commands | open in different terminals the Monitoring containers
 2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
