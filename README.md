@@ -10,6 +10,10 @@
     - [Monitoring Containers](#monitoring-containers)
 4. [Entity Relational Diagram](#entity-relational-mapping)
 
+This project was developed to serve the Instructional Self project for both **Backend and Distributed Systems Development**.
+Students: 
+
+    - 
 ![DjangoMessager - Overview](https://github.com/luisbt07/messager-django/assets/57811501/6644fc79-a098-4a01-be7c-4064baca176a)
 ### Django framework
 This is a simple messager chat django-project, but with a lot of modern concepts using Docker Containers, Celery for async task queue configured with Redis(as Broker and Backend).   
@@ -70,7 +74,7 @@ To shutdown application:
 
 If you want to access the application, just go to http://0.0.0.0:8000/messager \
 #### Monitoring
-If you want to monitore the other containers: 
+You may want to monitor the other containers: 
 
     docker logs -f messager-redis
     docker logs -f messaging-worker
@@ -91,3 +95,9 @@ This intermediate model enables us to handle more complex scenarios, such as:
  - Adding more metadata per recipient-message(e.g., timestamps, flags).
  - Facilitating more advanced querying or filtering based on recipients
 This design pattern gives us more flexibility to manage messages and recipients separately, providing clearer and more maintainable code as the application evolves.
+### Testing Suggest
+Happy path
+1. Run the application with the docker commands | open in different terminals the Monitoring containers
+2. Open the application in three different browsers Chrome, Chrome(private mode ctrl + shift + n), Firefox
+3. Register different users and login with them
+4. 
