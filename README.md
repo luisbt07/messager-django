@@ -1,4 +1,5 @@
 # messager-django
+LINK - Github of the project: https://github.com/luisbt07/messager-django
 1. [Features](#features)
 2. [Technologies Used](#technologies-used)
     - [Celery - Async Tasks](#celery---async-tasks)
