@@ -5,13 +5,12 @@ LINK - Github of the project: https://github.com/luisbt07/messager-django
     - [Celery - Async Tasks](#celery---async-tasks)
     - [Redis](#redis)
     - [Redis integrated with Celery](#redis-integrated-with-celery)
-3. [Running - Application](#running---application)
-    - [Requirements](#requirements)
-    - [Setup](#setup)
+3.[Install Requirements](#install-requirements)
+4. [Running - Application](#running---application)
     - [Monitoring Containers](#monitoring-containers)
-4. [Entity Relational Diagram](#entity-relational-mapping)
-5. [Test Suggestion](#test-suggestion)
-6. [References](#references)
+5. [Entity Relational Diagram](#entity-relational-mapping)
+6. [Test Suggestion](#test-suggestion)
+7. [References](#references)
 
 This project was developed to serve the Instructional Self project for both **Backend and Distributed Systems Development**.
 Students: 
@@ -66,12 +65,37 @@ Celery greatly enhances the scalability and performance of applications by handl
 
 Overall, Redis plays a crucial role in the Celery ecosystem by providing a fast and reliable message broker and task queue, enabling distributed task execution and efficient communication between components in asynchronous task processing.
 
-### Running - Application
-#### Requirements
+### Install Requirements
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker-Compose](https://docs.docker.com/compose/)
-#### Setup
- The DockerFile and docker-compose.yaml are already configured to run the application, so you just need to run the following command:
+
+To install docker Ubuntu 18>
+
+    sudo apt update
+    sudo apt install ca-certificates curl gnupg lsb-release
+
+Next step:
+
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+Add Docker package source to your system
+
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null    
+
+Update your package list so apt knows the Docker packages exist:
+
+    sudo apt update
+
+Finally install latest version of Docker
+
+    sudo apt install docker-ce docker-ce-cli containerd.io
+
+### Running - Application
+The DockerFile and docker-compose.yaml are already configured to run the application, so you just need to run the following command:
+
+Go to the root of the application and run these docker build commands:
 
     docker compose up -d --build
 
