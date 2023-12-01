@@ -5,7 +5,7 @@ LINK - Github of the project: https://github.com/luisbt07/messager-django
     - [Celery - Async Tasks](#celery---async-tasks)
     - [Redis](#redis)
     - [Redis integrated with Celery](#redis-integrated-with-celery)
-3.[Install Requirements](#install-requirements)
+3. [Install Requirements](#install-requirements)
 4. [Running - Application](#running---application)
     - [Monitoring Containers](#monitoring-containers)
 5. [Entity Relational Diagram](#entity-relational-mapping)
