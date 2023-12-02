@@ -92,6 +92,11 @@ Finally install latest version of Docker
 
     sudo apt install docker-ce docker-ce-cli containerd.io
 
+After installation for you do not need to use "sudo" run these commands
+
+    sudo usermod -aG docker ${USER}
+    su - ${USER}
+
 ### Running - Application
 The DockerFile and docker-compose.yaml are already configured to run the application, so you just need to run the following command:
 
